@@ -19,6 +19,7 @@ public class IfStatement {
     public int ifExample(boolean bool, int x, int y){
         if(bool == true){return x;}
         else {return y;}
+        return bool == true ? return x : return y // ternary operator expratsionn
 
     }
 }
