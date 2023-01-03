@@ -27,3 +27,4 @@ public class SetAllArrayElements {
             arr[i]= n;
     }
 }
+}
