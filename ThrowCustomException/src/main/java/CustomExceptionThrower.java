@@ -10,16 +10,4 @@ public class CustomExceptionThrower {
      */
    
      public void throwCustomException() throws CustomException{
-        int age=-2;
-            if (age<0){
-            throw new CustomException ("Age must not be negative");
-        } 
-        return;
-            }
-        }
-         
-        int even = 1;
-            if (even%2 !=0){
-            throw new CustomException ("You number is not even");
-        }
-        
+    
