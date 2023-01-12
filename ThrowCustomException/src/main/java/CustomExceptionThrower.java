@@ -10,4 +10,13 @@ public class CustomExceptionThrower {
      */
    
      public void throwCustomException() throws CustomException{
+                int odd = 2;
+            if (odd%2==0){
+            throw new CustomException ("You number is not odd");
     
+        }
+        return; 
+    }
+    }
+
+        
