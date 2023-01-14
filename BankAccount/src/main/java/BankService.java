@@ -23,6 +23,7 @@ public class BankService {
      * @param amount the amount to be deposited.
      */
     public void deposit(double amount){
+        balance = balance + amount;
 
     }
 
@@ -32,14 +33,20 @@ public class BankService {
      * @param amount the amount to be withdrawn.
      */
     public void withdraw(double amount){
-
+        if (amount <= balance){
+            balance = balance - amount;
+        } 
+            else {
+                System.out.println("Negative Balance - withdrawl cannot occur");
+            }
     }
+
 
     /**
      * There is no need to change this method, it will be used in testing and in the menu class.
      * @return the user's balance.
      */
     public double getBalance(){
-        return 0;
+        return balance;
     }
 }
