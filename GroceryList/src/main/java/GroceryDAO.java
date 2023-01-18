@@ -1,11 +1,11 @@
-import Util.ConnectionUtil;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+
+import Util.ConnectionUtil;
 
 /**
  * A DAO is a class that mediates the transformation of data between the format of objects in Java to rows in a
@@ -28,7 +28,8 @@ public class GroceryDAO {
         List<String> groceries = new ArrayList<>();
         try {
             //Write SQL logic here
-            String sql = "change me";
+            //String sql = "change me";
+            String sql = "SELECT * FROM Grocery";
             PreparedStatement ps = connection.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             while(rs.next()){
@@ -48,7 +49,8 @@ public class GroceryDAO {
         Connection connection = ConnectionUtil.getConnection();
         try {
             //Write SQL logic here
-            String sql = "change me";
+            //String sql = "change me";
+            String sql = "INSERT INTO Grocery (grocery_name) VALUES ('"+groceryName+"')";
             PreparedStatement ps = connection.prepareStatement(sql);
             ps.executeUpdate();
         }catch(SQLException e){
