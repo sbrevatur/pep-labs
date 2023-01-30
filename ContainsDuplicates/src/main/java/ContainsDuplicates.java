@@ -8,6 +8,14 @@ public class ContainsDuplicates {
      * @return true if nums contains any duplicate values, false if it does not.
      */
     public boolean containsDuplicate(int[] nums){
+        for (int i=0; i<nums.length-1; i++){
+            for(int b=i+1; b<nums.length; b++){
+            if(nums[i]==nums[b]){
+            return true;
+           }
+           }
+           }
         return false;
-    }
-}
+        }
+        }
+        
