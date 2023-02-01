@@ -32,7 +32,7 @@ public class BookDAO {
         List<Book> books = new ArrayList<>();
         try {
             //Write SQL logic here
-            String sql = "change me";
+            String sql = "select * from book";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             ResultSet rs = preparedStatement.executeQuery();
             while(rs.next()){
@@ -57,7 +57,7 @@ public class BookDAO {
         Connection connection = ConnectionUtil.getConnection();
         try {
             //Write SQL logic here
-            String sql = "change me";
+            String sql = "select * from book where isbn = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
             //write preparedStatement's setInt method here.
@@ -87,10 +87,14 @@ public class BookDAO {
         Connection connection = ConnectionUtil.getConnection();
         try {
             //Write SQL logic here
-            String sql = "change me" ;
+            String sql = "insert into book (title, isbn, author_id, copies_availabile) values (?,?,?,?);";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
             //write preparedStatement's setString and setInt methods here.
+            preparedStatement.setString(1, book.title);
+            preparedStatement.setInt(2, book.isbn);
+            preparedStatement.setInt(3, book.getAuthor_id());
+            preparedStatement.setInt(4, book.getCopies_available());
 
             preparedStatement.executeUpdate();
             return book;
@@ -109,10 +113,11 @@ public class BookDAO {
         List<Book> books = new ArrayList<>();
         try {
             //Write SQL logic here
-            String sql = "change me";
+            String sql = "select* from where copies_available > 0";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
             //write preparedStatement's setInt method here.
+            //?? not working - preparedStatement.setInt(1, books);
 
             ResultSet rs = preparedStatement.executeQuery();
             while(rs.next()){
