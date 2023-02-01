@@ -61,6 +61,7 @@ public class BookDAO {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
             //write preparedStatement's setInt method here.
+            preparedStatement.setInt(1, isbn);
 
             ResultSet rs = preparedStatement.executeQuery();
             while(rs.next()){
@@ -87,13 +88,13 @@ public class BookDAO {
         Connection connection = ConnectionUtil.getConnection();
         try {
             //Write SQL logic here
-            String sql = "insert into book (title, isbn, author_id, copies_availabile) values (?,?,?,?);";
+            String sql = "insert into book (title, isbn, author_id, copies_available) values (?,?,?,?);";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
             //write preparedStatement's setString and setInt methods here.
             preparedStatement.setString(1, book.title);
             preparedStatement.setInt(2, book.isbn);
-            preparedStatement.setInt(3, book.getAuthor_id());
+            preparedStatement.setInt(3, book.getAuthor_id() );
             preparedStatement.setInt(4, book.getCopies_available());
 
             preparedStatement.executeUpdate();
@@ -108,12 +109,12 @@ public class BookDAO {
      * You only need to change the sql String and leverage PreparedStatement's setString and setInt methods.
      * @returnall books with book count > 0.
      */
-    public List<Book> getBooksWithBookCountOverZero(){
+    public List<Book> getBooksWithBookCountOverZero() {
         Connection connection = ConnectionUtil.getConnection();
         List<Book> books = new ArrayList<>();
         try {
             //Write SQL logic here
-            String sql = "select* from where copies_available > 0";
+            String sql = "select * from book where copies_available > 0";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
             //write preparedStatement's setInt method here.
@@ -131,5 +132,6 @@ public class BookDAO {
             System.out.println(e.getMessage());
         }
         return books;
+
     }
 }
