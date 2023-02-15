@@ -17,6 +17,13 @@ public class PigLatin {
      * @return the pig latin form of in.
      */
     public String returnPigLatin(String in){
-        return "";
-    }
+        String pigString;
+        if (in.startsWith("a") || in.startsWith("e") || in.startsWith("i") || in.startsWith("o")
+                || in.startsWith("u")) {
+            pigString = in + "ay";
+         } else {
+            pigString = in.substring(1) + in.charAt(0) + "ay";
+          }
+        return pigString;
+       }
 }
