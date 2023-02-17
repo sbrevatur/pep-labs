@@ -8,9 +8,18 @@ public class CharComparison {
      *
      * @param a an array of char.
      * @param b an array of char.
-     * @return -1 if A is less than B, 1 if A is greater than B, and 0 if the two arrays are identical.
+     * @return 
      */
-    public int compare(char[] a, char[] b){
+    public int compare (char[] a, char[] b){
+        for(int i=0; i<a.length;i++){
+            if (a[i]<b[i]){
+                return -1;
+            } else {
+                if (a[i]>b[i]){
+                    return 1;
+                }
+            }
+        }
         return 0;
     }
 }
